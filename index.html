@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LauncherLite</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Minecraft Launcher</p>
+          <h1>LauncherLite</h1>
+          <p class="subtitle">Basit sürüm seçimi, hesap adı ve tek tıkla hazır oyun deneyimi.</p>
+        </div>
+        <div class="status-card" id="statusCard" aria-live="polite">
+          <p class="status-title">Durum</p>
+          <p class="status-text" id="statusText">Hazır. Sürüm seçin ve hesabınızı girin.</p>
+          <div class="status-meta">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="statusLabel">Beklemede</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel">
+          <h2>Hesap Bilgileri</h2>
+          <label class="field">
+            <span>Hesap adı</span>
+            <input type="text" id="accountName" placeholder="Örn: LauncherLitePlayer" />
+          </label>
+          <label class="field">
+            <span>Sürüm seçimi</span>
+            <select id="versionSelect">
+              <option value="1.21">Minecraft 1.21 (Önerilen)</option>
+              <option value="1.20.4">Minecraft 1.20.4</option>
+              <option value="1.19.4">Minecraft 1.19.4</option>
+              <option value="1.18.2">Minecraft 1.18.2</option>
+            </select>
+          </label>
+          <div class="actions">
+            <button class="primary" id="installBtn">Sürümü Yükle / Güncelle</button>
+            <button class="ghost" id="readyBtn" disabled>Oyuna Hazır</button>
+          </div>
+          <p class="helper">Kurulum sırasında gerekli dosyalar indirilecek ve doğrulanacaktır.</p>
+        </section>
+
+        <section class="panel" aria-label="Kurulum durumu">
+          <h2>Kurulum İlerlemesi</h2>
+          <div class="progress">
+            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+          </div>
+          <div class="progress-info">
+            <span id="progressLabel">%0</span>
+            <span id="downloadLabel">İndirme bekleniyor</span>
+          </div>
+          <ul class="steps">
+            <li id="stepVersion">Sürüm kontrolü</li>
+            <li id="stepDownload">Dosyalar indiriliyor</li>
+            <li id="stepVerify">Dosyalar doğrulanıyor</li>
+            <li id="stepReady">Oyun hazır</li>
+          </ul>
+        </section>
+
+        <section class="panel highlight" aria-label="Hızlı özet">
+          <h2>Hızlı Özet</h2>
+          <div class="summary">
+            <div>
+              <p class="summary-label">Hesap</p>
+              <p class="summary-value" id="summaryAccount">-</p>
+            </div>
+            <div>
+              <p class="summary-label">Sürüm</p>
+              <p class="summary-value" id="summaryVersion">-</p>
+            </div>
+            <div>
+              <p class="summary-label">Durum</p>
+              <p class="summary-value" id="summaryStatus">Beklemede</p>
+            </div>
+          </div>
+          <div class="tip">
+            <h3>İpucu</h3>
+            <p>LauncherLite, seçtiğiniz sürümü kontrol eder ve gerekirse günceller. Kurulum tamamlandıktan sonra oyun otomatik olarak hazır olur.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
